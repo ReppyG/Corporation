@@ -1,0 +1,9 @@
+agents:
+  ceo: 1
+  engineering_head: 1
+  qa_head: 1
+  test_head: 1
+  coders: 10
+  reviewers: 10
+  game_breakers: 10
+  shareholders: 10

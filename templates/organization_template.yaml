@@ -1,0 +1,7 @@
+organization:
+  name: "Template Organization"
+  description: "Describe purpose"
+hierarchy:
+  board:
+    name: Board
+    size: 5

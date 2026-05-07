@@ -1,0 +1,44 @@
+organization:
+  name: "Nexus Corporation"
+  description: "AI-driven development company building Nexus"
+  llm_provider: "gemini"
+  llm_model: "gemini-2.5-flash"
+  memory_storage: "json"
+  meeting_interval_minutes: 30
+
+hierarchy:
+  board:
+    name: "Board of Directors"
+    size: 10
+    role_template: "templates/role_template.yaml"
+  departments:
+    - name: "Engineering"
+      head_role: "nexus-eng-head"
+      team_size: 10
+      agent_role_template: "templates/agent_prompt_template.md"
+    - name: "Quality Assurance"
+      head_role: "nexus-qa-head"
+      team_size: 10
+      agent_role_template: "templates/agent_prompt_template.md"
+    - name: "Testing"
+      head_role: "nexus-test-head"
+      team_size: 10
+      agent_role_template: "templates/agent_prompt_template.md"
+
+agents:
+  - id: "nexus-ceo"
+    name: "CEO"
+    role: "Chief Executive Officer"
+    prompt_file: "examples/nexus_corporation/prompts/ceo.md"
+  - id: "nexus-eng-head"
+    name: "Engineering Head"
+    role: "Engineering-Head"
+    prompt_file: "examples/nexus_corporation/prompts/engineering_head.md"
+  - id: "nexus-qa-head"
+    name: "QA Head"
+    role: "QA-Head"
+    prompt_file: "examples/nexus_corporation/prompts/qa_head.md"
+  - id: "nexus-test-head"
+    name: "Testing Head"
+    role: "Testing-Head"
+    prompt_file: "examples/nexus_corporation/prompts/test_head.md"

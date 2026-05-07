@@ -1,0 +1,5 @@
+name: "Role Name"
+description: "Role description"
+authority_level: 1
+decision_rights: []
+reports_to: []

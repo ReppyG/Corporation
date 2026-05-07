@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-builder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-builder
+  template:
+    metadata:
+      labels:
+        app: agent-builder
+    spec:
+      containers:
+        - name: agent-builder
+          image: agent-builder:latest
+          command: ["agent-builder", "run", "--config", "examples/nexus_corporation/config.yaml"]
+          resources:
+            limits:
+              memory: "700Mi"
+              cpu: "500m"
