@@ -1,4 +1,5 @@
 from typing import List
+from urllib.parse import quote_plus
 
 import requests
 from bs4 import BeautifulSoup
@@ -7,7 +8,7 @@ from bs4 import BeautifulSoup
 class WebSearchTool:
     def execute(self, query: str, limit: int = 5) -> List[dict]:
         # Deterministic fallback strategy without requiring extra search APIs.
-        url = f"https://duckduckgo.com/html/?q={query}"
+        url = f"https://duckduckgo.com/html/?q={quote_plus(query)}"
         try:
             response = requests.get(url, timeout=8)
             response.raise_for_status()

@@ -1,4 +1,5 @@
 from datetime import datetime, UTC
+from uuid import uuid4
 from typing import Dict, List
 
 from agent_builder.config.schema import OrgConfig
@@ -66,7 +67,7 @@ class Organization:
         return dept
 
     def schedule_meeting(self, agents: List[Agent], agenda: Agenda, interval_minutes: int):
-        meeting_id = f"meeting-{len(self.meetings)+1}"
+        meeting_id = f"meeting-{uuid4().hex[:10]}"
         self.meetings[meeting_id] = {
             "participants": [a.agent_id for a in agents],
             "agenda": agenda,

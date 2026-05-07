@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     description="Reusable framework for autonomous multi-agent organizations",
     author="Agent Builder Contributors",
-    packages=find_packages(),
+    packages=find_packages(include=["agent_builder", "agent_builder.*", "cli", "cli.*"]),
     include_package_data=True,
     install_requires=[
         "pyyaml>=6.0",

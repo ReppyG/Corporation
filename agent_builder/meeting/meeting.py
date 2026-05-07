@@ -27,5 +27,12 @@ class Meeting:
         return transcript
 
     def vote(self, question: str, options: List[str]) -> VotingResult:
-        ballots = [options[0] for _ in self.participants]
+        ballots = []
+        for participant in self.participants:
+            vote_fn = getattr(participant, "vote", None)
+            if callable(vote_fn):
+                choice = vote_fn(question, options)
+                ballots.append(choice if choice in options else options[0])
+            else:
+                ballots.append(options[0])
         return conduct_vote(question=question, options=options, ballots=ballots)
