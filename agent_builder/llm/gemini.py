@@ -43,7 +43,7 @@ class GeminiProvider(LLMProvider):
         genai.configure(api_key=self.api_key)
         self._client = genai
         self._model_instance = genai.GenerativeModel(self.model)
-        logger.debug("[gemini] client initialised for model '%s'", self.model)
+        logger.debug("[gemini] client initialized for model '%s'", self.model)
 
     # ------------------------------------------------------------------
     # LLMProvider interface

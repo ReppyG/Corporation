@@ -38,7 +38,7 @@ class AnthropicProvider(LLMProvider):
         import anthropic  # noqa: PLC0415
 
         self._client = anthropic.Anthropic(api_key=self.api_key)
-        logger.debug("[anthropic] client initialised for model '%s'", self.model)
+        logger.debug("[anthropic] client initialized for model '%s'", self.model)
 
     # ------------------------------------------------------------------
     # LLMProvider interface

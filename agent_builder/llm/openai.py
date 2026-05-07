@@ -39,7 +39,7 @@ class OpenAIProvider(LLMProvider):
         import openai  # noqa: PLC0415
 
         self._client = openai.OpenAI(api_key=self.api_key)
-        logger.debug("[openai] client initialised for model '%s'", self.model)
+        logger.debug("[openai] client initialized for model '%s'", self.model)
 
     # ------------------------------------------------------------------
     # LLMProvider interface

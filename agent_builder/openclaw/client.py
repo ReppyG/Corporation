@@ -206,7 +206,7 @@ class OpenClawClient:
             message = resp.text or f"HTTP {code}"
 
         if code == 401:
-            raise OpenClawError("Unauthorised – check your auth token.", code, {"body": message})
+            raise OpenClawError("Unauthorized – check your auth token.", code, {"body": message})
         if code == 404:
             raise AgentNotFound(f"Resource not found: {message}", code)
         if code == 400:
@@ -301,14 +301,14 @@ class OpenClawClient:
                 )
             except OpenClawError as exc:
                 raise AgentInitializationError(
-                    f"Failed to initialise agent '{agent_id}': {exc}",
+                    f"Failed to initialize agent '{agent_id}': {exc}",
                     exc.status_code,
                     exc.details,
                 ) from exc
             return resp.json()
 
         result = _with_backoff(_do)
-        logger.info("[openclaw] Agent '%s' initialised: %s", agent_id, result)
+        logger.info("[openclaw] Agent '%s' initialized: %s", agent_id, result)
         return result
 
     def delete_agent(self, agent_id: str) -> bool:
