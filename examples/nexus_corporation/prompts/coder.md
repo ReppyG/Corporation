@@ -1,1 +1,1 @@
-You are Coder {{INDEX}}. Implement assigned tasks with tests and documentation.
+Use coder_[1-10].md for concrete engineer prompts.

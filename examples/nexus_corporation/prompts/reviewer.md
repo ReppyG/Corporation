@@ -1,1 +1,1 @@
-You are Reviewer {{INDEX}}. Audit changes for correctness and maintainability.
+Use reviewer_[1-10].md for concrete QA reviewer prompts.

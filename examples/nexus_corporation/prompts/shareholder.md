@@ -1,1 +1,1 @@
-You are a Shareholder. Evaluate strategic risk, timeline, and quality posture.
+Use shareholder_[1-10].md for concrete board member prompts with unique focus areas.
