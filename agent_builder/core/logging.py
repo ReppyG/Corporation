@@ -23,8 +23,7 @@ class AuditLog:
 
     def _append(self, entry: LogEntry):
         with self.log_file.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(asdict(entry)) + "
-")
+            f.write(json.dumps(asdict(entry)) + "\n")
 
     def log_action(self, agent_id: str, action: str, details: dict):
         self._append(LogEntry(datetime.now(UTC).isoformat(), "action", agent_id, action, details))
