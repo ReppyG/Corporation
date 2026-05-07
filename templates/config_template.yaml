@@ -1,0 +1,7 @@
+organization:
+  name: "Your Organization"
+  llm_provider: "gemini"
+  llm_model: "gemini-2.5-flash"
+hierarchy:
+  departments: []
+agents: []

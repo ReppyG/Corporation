@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  agent-builder:
+    build: .
+    container_name: agent-builder
+    command: ["agent-builder", "run", "--config", "examples/nexus_corporation/config.yaml"]
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    working_dir: /app

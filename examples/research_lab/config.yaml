@@ -1,0 +1,8 @@
+organization:
+  name: "Research Lab"
+  llm_provider: "anthropic"
+  llm_model: "claude-sonnet"
+agents:
+  - id: principal_investigator
+    name: PI
+    role: Lead Researcher
