@@ -32,13 +32,26 @@ class Agent:
         }
 
     def think(self, prompt: str, use_memory: bool = True, use_web: bool = False) -> str:
-        context = []
+        context_items = []
         if use_memory:
-            context = self.memory.get_agent_context(self.agent_id, limit=10).get("matches", [])
+            context_items = self.memory.get_agent_context(self.agent_id, limit=10).get("matches", [])
         if use_web:
             web_result = self.execute_tool("web_search", query=prompt, limit=3)
-            context.append({"web": web_result})
-        result = self.llm_provider.generate_with_context(prompt, self.role.get_system_prompt(), context)
+            context_items.append({"role": "user", "content": f"[web search result]: {web_result}"})
+
+        # Build messages list: system role first, then context, then the new prompt
+        system_prompt = self.role.get_system_prompt()
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        for item in context_items:
+            if isinstance(item, dict) and "role" in item:
+                messages.append(item)
+            elif isinstance(item, dict):
+                messages.append({"role": "user", "content": str(item)})
+        messages.append({"role": "user", "content": prompt})
+
+        result = self.llm_provider.generate_with_context(messages)
         self.log_action("think", {"prompt": prompt, "used_memory": use_memory, "used_web": use_web})
         return result
 
